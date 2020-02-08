@@ -39,6 +39,7 @@ class Model {
 
     public function getCityRegionByPhone (string $phone) : string {
 
+        $phone = preg_replace ('#\D+#', '', preg_replace ('#^((\+7)|8)#', '', $phone));
         preg_match ('#(\d{3})(\d{7})#', $phone, $matches);
 
         if (count ($matches) < 3) {
